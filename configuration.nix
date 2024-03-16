@@ -77,6 +77,7 @@ in { config, pkgs, lib, ... }:
   services.printing.enable = true;
   sound.enable = true;
   hardware.pulseaudio.enable = false;
+  security.apparmor.enable = true;
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
@@ -97,10 +98,15 @@ in { config, pkgs, lib, ... }:
 
   programs.steam = {
   enable = true;
-  remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
-  dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
+  remotePlay.openFirewall = false; # Open ports in the firewall for Steam Remote Play
+  dedicatedServer.openFirewall = false; # Open ports in the firewall for Source Dedicated Server
 };
 
+  programs.nix-ld.enable = true;
+  programs.nix-ld.libraries = with pkgs; [
+    # Add any missing dynamic libraries for unpackaged programs
+    # here, NOT in environment.systemPackages
+  ];
   programs.zsh.enable = true;
   programs.kdeconnect.enable = true;
   users.users.john = {
@@ -109,9 +115,14 @@ in { config, pkgs, lib, ... }:
     extraGroups = [ "networkmanager" "wheel" "docker" ];
     shell = pkgs.zsh;
     packages = with pkgs; [
+      android-tools
+      anytype
+      appflowy
+      bruno
       dolphin-emu
       pcsx2
       rpcs3
+      #warp-terminal
       #retroarchFull
       #cemu
       #floorp-unwrapped
@@ -152,15 +163,19 @@ environment.systemPackages = with pkgs; [
   ansible
   ansible-lint
   bitwarden-cli
-  distrobox
+  btop
   ddccontrol
   ddccontrol-db
+  distrobox
+  dust
+  eza
   fzf
   ffmpeg
   git
   gimp
   gparted
   htop
+  i2c-tools
   intel-gpu-tools
   jq
   kitty
@@ -173,11 +188,12 @@ environment.systemPackages = with pkgs; [
   obs-studio
   obsidian
   pciutils
+  powertop
   protonup-qt
   quickemu
-  rnix-lsp
   rsync
   shadow
+  smartmontools
   stacer
   steam-rom-manager
   tldr
@@ -186,7 +202,7 @@ environment.systemPackages = with pkgs; [
   wget
   xorg.xkbutils
   yt-dlp
-  yuzu
+  #yuzu
   qbittorrent
 ];
 
@@ -221,8 +237,6 @@ environment.systemPackages = with pkgs; [
     enable = true;
     setSocketVariable = true;
   };
-
-
 
 environment.sessionVariables = {
     DRI_PRIME = "1";
@@ -259,4 +273,5 @@ services.xserver = {
     EndSection
   '';
 };
+
 }

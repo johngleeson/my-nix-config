@@ -120,6 +120,12 @@ in {
                 "https://addons.mozilla.org/firefox/downloads/latest/view_page_archive/latest.xpi";
               installation_mode = "force_installed";
             };
+            # Bitwarden
+            "{446900e4-71c2-419f-a6a7-df9c091e268b}" = {
+              install_url =
+                "https://addons.mozilla.org/firefox/downloads/latest/bitwarden_password_manager/latest.xpi";
+              installation_mode = "force_installed";
+            };
           };
 
           # ---- PREFERENCES ----
