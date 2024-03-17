@@ -1,7 +1,8 @@
-{ lock-false, lock-true, ... }:
-
-
 {
+  lock-false,
+  lock-true,
+  ...
+}: {
   # Disable automatic updates.
   # Updates are no longer installed automatically. You will still be notified when
   # an update is available and can install it. Avoids getting a new (maybe addon

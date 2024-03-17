@@ -1,7 +1,8 @@
-{ lock-false, lock-true, ... }:
-
-
 {
+  lock-false,
+  lock-true,
+  ...
+}: {
   # Fake another Useragent
   # Using a popular useragent string
   # (https://techblog.willshouse.com/2012/01/03/most-common-user-agents/) avoids

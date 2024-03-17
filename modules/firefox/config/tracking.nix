@@ -1,7 +1,8 @@
-{ lock-false, lock-true, ... }:
-
-
 {
+  lock-false,
+  lock-true,
+  ...
+}: {
   # Enable Do-not-Track
   # With the do not track feature, you tell websites, that you do not want to be
   # tracked. Most websites ignore this, so you need other privacy options as well.
@@ -68,5 +69,4 @@
   # Firefox 102 introduced query parameter stripping like utm_source. Enabled by
   # default with Strict Enhanced Tracking Protection.
   "privacy.query_stripping" = lock-true;
-
 }

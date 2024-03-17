@@ -1,7 +1,8 @@
-{ lock-false, lock-true, ... }:
-
-
 {
+  lock-false,
+  lock-true,
+  ...
+}: {
   # Disable Telemetry
   # The telemetry feature
   # (https://support.mozilla.org/kb/share-telemetry-data-mozilla-help-improve-firefox)

@@ -1,7 +1,8 @@
-{ lock-false, lock-true, ... }:
-
-
 {
+  lock-false,
+  lock-true,
+  ...
+}: {
   # Disable firefox intro tabs on the first start
   # Disable the first run tabs with advertisements for the latest firefox features.
   "browser.startup.homepage_override.mstone" = "ignore";
@@ -39,7 +40,7 @@
   # time about their experience with Firefox.
   "browser.selfsupport.url" = "";
   # Content of the new tab page
-  # 
+  #
   "browser.newtabpage.enhanced" = lock-false;
   # Disable autoplay of <code>&lt;video&gt;</code> tags.
   # Per default, <code>&lt;video&gt;</code> tags are allowed to start automatically.
