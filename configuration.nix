@@ -19,6 +19,7 @@ in
     boot.loader.systemd-boot.enable = true;
     boot.loader.efi.canTouchEfiVariables = true;
     boot.kernelPackages = pkgs.linuxPackages_latest;
+    boot.supportedFilesystems = ["ntfs"];
     /*
        boot.kernelParams = [
       "pci=noacpi" # Disable ACPI for all PCI devices
@@ -178,6 +179,7 @@ in
       git
       gimp
       gparted
+      guestfs-tools
       htop
       i2c-tools
       intel-gpu-tools
@@ -194,6 +196,8 @@ in
       pciutils
       powertop
       protonup-qt
+      qemu
+      qemu-utils
       quickemu
       rsync
       shadow
